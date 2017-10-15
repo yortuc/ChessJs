@@ -3,12 +3,12 @@
 ```jsx
 <ChessGame gameState={}>
   <PlayerInfo playerInfo={ gameState.player } />
-  <Board board={gameState.board} />
+  <Board pieces={gameState.pieces} />
 </ChessGame>
 ```
 
 
-## Components
+## Components
 
 ### ChessGame
 

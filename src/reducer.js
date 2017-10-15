@@ -1,6 +1,18 @@
 
 export const selectTile = (state, i, j)=> {
 
+  // first selection
+  if(!state.selected && state.pieces[i][j].player === state.player){
+      const newPieces = [...state.pieces]
+      newPieces[i][j].selected = true
+
+      return { 
+        ...state,
+        pieces: newPieces,
+        selected: [i, j]
+      }
+  }
+
   // cant select empty tile directly
   if(!state.selected && state.pieces[i][j].type === 6) {
     return state
@@ -32,17 +44,6 @@ export const selectTile = (state, i, j)=> {
     newState.player = state.player === 0 ? 1 : 0
 
     return newState 
-  }
-
-  // first selection
-  if(state.pieces[i][j].player === state.player){
-      const newPieces = state.pieces
-      newPieces[i][j].selected = true
-
-      return { 
-        pieces: newPieces,
-        selected: [i, j]
-      }
   }
 
   return state
