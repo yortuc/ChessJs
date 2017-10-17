@@ -13,6 +13,14 @@ export const selectTile = (state, i, j)=> {
       }
   }
 
+  // un-selected a selected piece
+  if(state.selected && state.selected[0]===i && state.selected[1]===j){
+    return {
+      ...state,
+      selected: null
+    }
+  }
+
   // cant select empty tile directly
   if(!state.selected && state.pieces[i][j].type === 6) {
     return state
